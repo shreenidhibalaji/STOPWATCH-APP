@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Stopwatch App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>⏱️ Stopwatch</h1>
+    <div id="display">00:00:00</div>
+    <div class="buttons">
+      <button onclick="start()">Start</button>
+      <button onclick="pause()">Pause</button>
+      <button onclick="reset()">Reset</button>
+      <button onclick="lap()">Lap</button>
+    </div>
+    <ul id="laps"></ul>
+  </div>
+  <script src="script.js"></script>
+  <script>
+  const gradients = [
+    "linear-gradient(to right, #0f2027, #203a43, #2c5364)",
+    "linear-gradient(to right, #1e130c, #9a8478)",
+    "linear-gradient(to right, #3a1c71, #d76d77, #ffaf7b)",
+    "linear-gradient(to right, #2c3e50, #3498db)",
+    "linear-gradient(to right, #000000, #434343)",
+    "linear-gradient(to right, #360033, #0b8793)"
+  ];
+
+  let index = 0;
+
+  document.querySelectorAll('.buttons button').forEach(button => {
+    button.addEventListener('click', () => {
+      index = (index + 1) % gradients.length;
+      document.body.style.background = gradients[index];
+    });
+  });
+</script>
+
+</body>
+</html>
